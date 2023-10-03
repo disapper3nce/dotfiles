@@ -1,0 +1,10 @@
+    #! /bin/bash
+     
+    files=(~/Downloads/wallpaper/*)
+     
+    randomfile=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
+    echo $randomfile
+     
+    swaybg -i $randomfile -m fill
+
+

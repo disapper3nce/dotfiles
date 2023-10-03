@@ -1,0 +1,10 @@
+# config for sxhkd
+#
+super + shift + space
+             sh /home/disapper3nce/contrib/tile.sh
+
+super + space 
+        dmenu_run -fn scientifica -c -l 20
+
+super + p
+	sh /home/disapper3nce/dotfiles/clock.sh

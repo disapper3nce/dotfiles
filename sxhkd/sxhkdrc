@@ -1,0 +1,35 @@
+# config for sxhkd
+#
+super + shift + space
+             sh /home/disapper3nce/wmutils/contrib/tile.sh
+
+super + space 
+        dmenu_run -fn scientifica -c -l 20
+
+super + p
+	sh /home/disapper3nce/dotfiles/clock.sh
+
+super + shift + u 
+    sh /home/disapper3nce/wmutils/contrib/snap.sh tl
+
+super + shift + i 
+    sh /home/disapper3nce/wmutils/contrib/snap.sh tr
+
+super + shift + k
+    sh /home/disapper3nce/wmutils/contrib/snap.sh br
+
+super + shift + j
+    sh /home/disapper3nce/wmutils/contrib/snap.sh bl
+
+super + shift + Left
+    sh /home/disapper3nce/wmutils/contrib/snap.sh left
+
+ super + shift + Right
+    sh /home/disapper3nce/wmutils/contrib/snap.sh right
+ super + shift + left 
+    sh /home/disapper3nce/wmutils/contrib/snap.sh_left left
+
+super + shift + s
+    sh /home/disapper3nce/dotfiles/popup.sh
+
+

@@ -1,0 +1,163 @@
+set encoding=utf-8
+scriptencoding utf-8
+let g:is_fish = 1
+set directory=~/etc/vim,~/,/tmp
+set backupdir=~/etc/vim,~/,/tmp
+set viminfo+=n~/etc/vim/viminfo
+set runtimepath=~/etc/vim,~/etc/vim/after,$VIM,$VIMRUNTIME
+fun! Start()
+
+  "Create a new unnamed buffer to display our splash screen inside of.
+  enew
+   exec ":r !fortune"
+  " Set some options for this buffer to make sure that does not act like a
+  " normal winodw.
+  setlocal
+    \ bufhidden=wipe
+    \ buftype=nofile
+    \ nobuflisted
+    \ nocursorcolumn
+    \ nocursorline
+    \ nolist
+    \ nonumber
+    \ noswapfile
+    \ norelativenumber
+
+  " Our message goes here. Mine is simple.
+"   call append('$', ":)")
+
+  " When we are done writing out message set the buffer to readonly.
+  setlocal
+    \ nomodifiable
+    \ nomodified
+
+  " Just like with the default start page, when we switch to insert mode
+  " a new buffer should be opened which we can then later save.
+  nnoremap <buffer><silent> e :enew<CR>
+  nnoremap <buffer><silent> i :enew <bar> startinsert<CR>
+  nnoremap <buffer><silent> o :enew <bar> startinsert<CR>
+
+endfun
+
+" http://learnvimscriptthehardway.stevelosh.com/chapters/12.html
+" Autocommands are a way of setting handlers for certain events.
+" `VimEnter` is the event we want to handle. http://vimdoc.sourceforge.net/htmldoc/autocmd.html#VimEnter
+" The cleene star (`*`) is a pattern to indicate which filenames this Autocommand will apply too. In this case, star means all files.
+" We will call the `Start` function to handle this event.
+
+" http://vimdoc.sourceforge.net/htmldoc/eval.html#argc%28%29
+" The number of files in the argument list of the current window.
+" If there are 0 then that means this is a new session and we want to display
+" our custom splash screen.
+if argc() == 0
+  autocmd VimEnter * call Start()
+endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if empty(glob('~/etc/vim/autoload/plug.vim'))
+  silent !curl -fLo ~/etc/vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/etc/vim/plugged')
+
+Plug 'lervag/vimtex'
+  let g:tex_flavor = 'latex'
+Plug 'makerj/vim-pdf'
+Plug 'ledger/vim-ledger'
+Plug 'arrufat/vala.vim'
+Plug 'matze/vim-move'
+Plug 'godlygeek/tabular'
+"Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='base16_horizon_dark'
+
+Plug 'tpope/vim-surround'
+Plug 'chun-yang/auto-pairs'
+Plug 'joom/vim-commentary'
+
+Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'mhinz/vim-startify'
+Plug 'vimsence/vimsence'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+Plug 'chrisbra/colorizer'
+Plug 'chrisbra/unicode.vim'
+Plug 'preservim/nerdtree'
+nnoremap <C-t> :NERDTreeToggle<CR>
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/gv.vim', { 'on': 'GV' }
+Plug 'w0rp/ale'
+Plug 'majutsushi/tagbar', { 'on': 'Tagbar' }
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
+Plug 'maxboisvert/vim-simple-complete'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
+
+filetype plugin on
+syntax on
+
+colorscheme quiet
+
+set modeline
+set hidden
+set showmatch
+set noshowmode
+set termguicolors
+set background=dark
+set synmaxcol=512
+set nowrap
+set laststatus=0
+set undofile
+set undodir=~/etc/vim/tmp/undo/
+set backupdir=~/etc/vim/tmp/backup/
+set noswapfile
+set backspace=indent,eol,start
+set shiftwidth=4
+set expandtab
+set tabstop=4
+set softtabstop=4
+set autoindent
+set autochdir
+set clipboard=unnamedplus
+set ignorecase
+set smartcase
+set infercase
+set hlsearch
+set incsearch
+set nofoldenable
+set foldlevel=99
+set foldminlines=99
+set foldlevelstart=99
+"set listchars=tab:·\ ,trail:·,extends:»,precedes:«,nbsp:_
+set fillchars+=eob:\ 
+
+
+
+
+
+if !isdirectory(expand(&backupdir))
+    call mkdir(expand(&backupdir), 'p')
+endif
+
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), 'p')
+endif
+
