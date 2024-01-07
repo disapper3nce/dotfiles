@@ -1,0 +1,34 @@
+XTerm*background: #1a1b1c
+XTerm*foreground: #ffffff
+XTerm*pointerColor: #666666
+xterm*faceName: gohufont
+xterm*faceSize: 12
+XTerm*VT100*titeInhibit: true
+    XTerm*internalBorder: 40
+    XTerm*highlightSelection: false
+    XTerm*color0: #080808
+    XTerm*color1: #515978
+    XTerm*color2: #3ea28d
+    XTerm*color3: #4dc5ce
+    XTerm*color4: #6ea2a5
+    XTerm*color5: #a8a8a8
+    XTerm*color6: #558188
+    XTerm*color7: #c0c0c0
+    XTerm*color8: #36393f
+    XTerm*color9: #778099
+    XTerm*color10: #71c4ba
+    XTerm*color11: #5e767f
+    XTerm*color12: #6abdc1
+    XTerm*color13: #4e4d80
+    XTerm*color14: #4fc8ce
+    XTerm*color15: #a6a8aa
+    XTERM.vt100*dynamicColors: On
+	XTerm*selectToClipboard: true
+	XTerm*VT100*translations: #override \n\
+    Ctrl Shift <Key>P:  insert-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>Y:        select-end(CLIPBOARD)
+    XTerm*scrollColor: black
+    XTerm*allowSendEvents: True
+    XTerm*sessionMgt: false
+    XTerm*eightBitInput: false
+    XTerm*metaSendsEscape: true
