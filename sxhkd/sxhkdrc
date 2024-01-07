@@ -2,17 +2,57 @@
 #
 super + shift + space
              sh /home/disapper3nce/wmutils/contrib/tile.sh
+super + Left
+            wtp 10 10 600 1040 $(pfw)
+super + Down
+            wtp 647 10 600 1040 $(pfw)
+super + Right
+            wtp 1287 10 600 1040 $(pfw)
 
-super + space 
-        dmenu_run -fn scientifica -c -l 20
+super + shift + Up
+     wtp 0 0 1900 540 $(pfw)
+super + shift + Down
+     wtp 0 560 1900 500 $(pfw)
 
-super + p
-	sh /home/disapper3nce/dotfiles/clock.sh
+super + space
+	~/.dmenu
 
-super + shift + u 
+super + l
+	books
+
+super + shift + l
+    nice
+
+super + e
+    xterm fff
+
+super + w
+     feh --bg-fill ~/wallpaper/better/$(ls wallpaper/better/ | dmenu -c -l 0)
+
+alt + space
+	~/.dmenu
+
+super + shift + Right
+    wtp 966 10 920 1040 $(pfw)
+
+super + Return
+    xterm -geometry 100x19+0+0
+
+super + shift + Return
+     wtp 25 20 1852 1023 $(pfw)
+
+Help
+	xterm && cbonsai
+
+ctrl + 3
+    cd ~/wallpaper/better && wal -i $(ls | shuf -n1) && xrdb -merge ~/.Xdefaults
+Redo
+	sh /home/disapper3nce/wmutils/contrib/tile.sh
+
+super + shift + u
     sh /home/disapper3nce/wmutils/contrib/snap.sh tl
 
-super + shift + i 
+super + shift + i
     sh /home/disapper3nce/wmutils/contrib/snap.sh tr
 
 super + shift + k
@@ -26,7 +66,7 @@ super + shift + Left
 
  super + shift + Right
     sh /home/disapper3nce/wmutils/contrib/snap.sh right
- super + shift + left 
+ super + shift + left
     sh /home/disapper3nce/wmutils/contrib/snap.sh_left left
 
 super + shift + s
