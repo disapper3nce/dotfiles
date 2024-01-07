@@ -1,0 +1,45 @@
+export http_proxy=http://127.0.0.1:7890
+export https_proxy=http://127.0.0.1:7890
+export LANG=en_US.UTF-8
+export EDITOR=vim
+export VISUAL="$EDITOR"
+export TERM=xterm-256color # enable the darned 256 color support vim, ok?
+# pastel config
+export PASTEL_COLOR_MODE=24bit
+#food --coffee
+#sss
+alias lf="ls -f"
+alias hiddenlair="mosh root@64.176.195.170"
+alias vi="vim"
+alias smi="sudo make install"
+alias mk="make -j$(nproc)"
+alias cx="chmod +x"
+alias k="cd ~/.config"
+alias cr="clash restart"
+alias ls='ls --color=auto'
+alias dict='dict -d gcide'
+cat /home/disapper3nce/.cache/wal/sequences
+bind '^L=clear-screen'
+bind '^P=search-history-up'
+xhost +local:root >/dev/null 2>&1
+HISTFILE="$HOME/.mksh_history"
+HISTSIZE=5000
+# retrieve colorscheme
+paleta ~/etc/colors/water 2>/dev/null >&2
+
+
+fzf_mksh(){
+history 1 | awk '{for(i=2; i<=NF; i++) printf "%s%s", $i, (i<NF ? " " : "\n")}'| fzf | sh
+}
+
+bind -m '^R=fzf_mksh^J'
+
+e="$(printf "\033")"
+mypwd() {
+    p="$PWD"
+    [ "$p" = "$HOME" ] && p="disapper3nce"
+    printf "$(basename "$p")"
+}
+
+#export PS1=$'\1\r\1$e[48;5;9m$e[30m\1 \# \1$e[48;5;8m$e[39m\1 \$(mypwd) \1$e[m\1 '
+export PS1=$'\e[1m$(mypwd)\e[0m '
