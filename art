@@ -1,0 +1,25 @@
+#!/bin/sh
+#battery module
+battery() {
+    lvl="$(cat /sys/class/power_supply/$1/capacity)"
+    ac="$(cat /sys/class/power_supply/$1/status)"
+    case $ac in
+    Charging) ac='' ;;
+    *) ac='' ;;
+    esac
+    printf '%d%%%c\n' "$lvl" "$ac"
+}
+
+
+cmus-status-line | tr "" " " | awk '{for(i=1;i<=NF-2;i++) printf "%s ", $i; print ""}'
+
+
+
+while :; do
+    echo "      $(cmus-status-line | tr "" " " | awk '{for(i=1;i<=NF-2;i++) printf "%s ", $i; print ""}')"
+	sleep 2s
+done |
+
+
+lemonbar -d -b -g "317x43+1574+133" -f "itim:pixelsize=12:antialias=true:autohint=true" -B "#ffffff" -F "#252525"
+
